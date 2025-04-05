@@ -1,36 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Controle de Estoque</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Simples</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3524/3524625.png" type="image/png">
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .calculadora {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      text-align: right;
+      padding-right: 10px;
+    }
+    .botoes button {
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #0d6efd;
+      color: white;
+      cursor: pointer;
+    }
+    .botoes button:hover {
+      background-color: #0b5ed7;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Controle de Estoque</h1>
-
-    <form id="form-product">
-      <input type="text" id="name" placeholder="Nome do Produto" required />
-      <input type="number" id="quantity" placeholder="Quantidade" required />
-      <input type="number" id="price" placeholder="Preço (R$)" step="0.01" required />
-      <button type="submit">Adicionar</button>
-    </form>
-
-    <h2>Produtos</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Produto</th>
-          <th>Quantidade</th>
-          <th>Preço</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody id="product-list"></tbody>
-    </table>
+  <div class="calculadora">
+    <input type="text" id="display" disabled>
+    <div class="botoes">
+      <button onclick="limpar()">C</button>
+      <button onclick="adicionar('/')">/</button>
+      <button onclick="adicionar('*')">*</button>
+      <button onclick="adicionar('-')">-</button><br>
+      <button onclick="adicionar('7')">7</button>
+      <button onclick="adicionar('8')">8</button>
+      <button onclick="adicionar('9')">9</button>
+      <button onclick="adicionar('+')">+</button><br>
+      <button onclick="adicionar('4')">4</button>
+      <button onclick="adicionar('5')">5</button>
+      <button onclick="adicionar('6')">6</button>
+      <button onclick="calcular()">=</button><br>
+      <button onclick="adicionar('1')">1</button>
+      <button onclick="adicionar('2')">2</button>
+      <button onclick="adicionar('3')">3</button>
+      <button onclick="adicionar('0')">0</button>
+      <button onclick="adicionar('.')">.</button>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function adicionar(valor) {
+      document.getElementById('display').value += valor;
+    }
+    function limpar() {
+      document.getElementById('display').value = '';
+    }
+    function calcular() {
+      try {
+        document.getElementById('display').value = eval(document.getElementById('display').value);
+      } catch (e) {
+        alert('Expressão inválida');
+      }
+    }
+  </script>
 </body>
 </html>
