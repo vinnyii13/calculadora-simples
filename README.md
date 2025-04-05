@@ -22,7 +22,8 @@ Você pode acessar a calculadora online aqui:
 
 ## 📷 Captura de Tela
 
-**![Screenshot da Calculadora](https://i.imgur.com/Nm8iIgL.png)**
+**![Uploading 73f01b00-7abb-431a-985e-71732b5f7ad7.png…]()
+**
 
 ---
 
